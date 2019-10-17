@@ -100,7 +100,6 @@
 				const master = gitgraph.branch("master");
 				master
 				.commit("Initial commit")
-				.commit("Polish 1");
 			
 				const aFeature = gitgraph.branch("a-feature");
 				aFeature
@@ -114,14 +113,17 @@
 				.commit("Implement new idea")
 				  .commit("Corrected some errors")
 				  master.merge(bFeature);
+				  master.commit({
+  subject: "Add feature",
+  tag: "v1.1.0",
+  author: "Birger <birger.hansen@skde.no>",
+});
 
 			  </script>
 
 </section>
 
-
-
-			</div>
+</div>
 		</div>
 		<script src="js/reveal.js"></script>
 		<script>
