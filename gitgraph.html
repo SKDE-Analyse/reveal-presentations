@@ -19,27 +19,21 @@
     // Simulate git commands with Gitgraph API.
     const master = gitgraph.branch("master");
     master.commit("Initial commit");
-
-    const develop = gitgraph.branch("develop");
-    develop.commit("Add TypeScript");
-
     const aFeature = gitgraph.branch("a-feature");
     aFeature
       .commit("Make it work")
       .commit("Make it right")
       .commit("Make it fast");
-
-    develop.merge(aFeature);
-    develop.commit({
-        subject: "Prepare v1",
-        author: "Birger <birger.hansen@skde.no>",
-    });
-
-    master.merge(develop).tag("v1.0.0");
+    master.merge(aFeature).tag("v1.0.0");
+    const bFeature = gitgraph.branch("b-feature");
+    bFeature
+    .commit("Implement new idea")
+    .commit("Corrected some errors")
+    master.merge(bFeature);
     master.commit({
-  subject: "New release",
-  tag: "v1.1.0",
-  author: "Birger <birger.hansen@skde.no>",
+    subject: "New release",
+    tag: "v1.1.0",
+    author: "Birger <birger.hansen@skde.no>",
 });
 
   </script>
