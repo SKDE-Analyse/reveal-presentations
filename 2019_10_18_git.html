@@ -39,37 +39,75 @@
 		<div class="reveal">
 			<div class="slides">
 
-				<section data-background-image="img/bg_front_wide.png">
-					<h1>git</h1>
-					<p>
-						Arnfinn
-					</p>
-				</section>
+<section data-background-image="img/bg_front_wide.png">
+    <h1>git</h1>
+    <p>
+    Arnfinn
+    </p>
+</section>
+<section data-background-image="img/bg_wide.png" data-markdown>
+<textarea data-template>
+## Hvorfor git?
 
-				<section data-background-image="img/bg_wide.png" data-markdown>
-					<textarea data-template>
-							## Hvorfor git?
-					
-							- gå tilbake i historien
-							- finne når feil ble introdusert
-							- ulike versjoner
-						</textarea>
-				</section>
+- Enkelt å ekperimentere med koden (`branch`)
+- Oversikt over historien (`git log`)
+- Mulig å "angre" på endringer som er gjort
+- Finne når feil ble introdusert
+- Flere (tusen) kan utvikle på samme kode
+</textarea>
+</section>
 
-				<section data-background-image="img/bg_wide.png" data-markdown>
-					<textarea data-template>
-							## Hvordan jobbe med git
-					
-							- gå tilbake i historien
-							- finne når feil ble introdusert
-							- ulike versjoner
-						</textarea>
-				</section>
+<section data-background-image="img/bg_wide.png" data-markdown>
+<textarea data-template>
+## Commit
 
+- Hva er endret
+- Hvem er jeg barn av
+- En melding og en forfatter
 
-				<section data-background-image="img/bg_wide.png">
-					<h2>Typiske git-kommandoer</h2>
-					<small>
+Gir en unik `hash`
+
+</textarea>
+</section>
+
+<section>
+	<iframe src="gitgraphs/gitgraph1.html" width="800" height="600"></iframe>
+</section>
+
+<section data-background-image="img/bg_wide.png" data-markdown>
+<textarea data-template>
+## Branch
+
+- `master` skal alltid være ok
+- Gjør alle endringen i en `branch`
+- `merge` inn i `master` når alt er ok
+
+</textarea>
+</section>
+
+<section>
+	<iframe src="gitgraphs/gitgraph2.html" width="800" height="600"></iframe>
+</section>
+
+<section>
+	<iframe src="gitgraphs/gitgraph.html" width="800" height="600"></iframe>
+</section>
+
+<section data-background-image="img/bg_wide.png" data-markdown>
+<textarea data-template>
+# Github
+
+I en ideell verden
+- Send kode opp til github i egen branch
+- Be om å få det lagt inn i `master` (*Pull request*)
+- Noen andre trykker ok
+
+</textarea>
+</section>
+
+<section data-background-image="img/bg_wide.png">
+    <h2>Typiske git-kommandoer</h2>
+<small>
 <span><pre><code data-trim data-noescape class="bash">git status</code></pre></span>
 <span><pre><code data-trim data-noescape class="bash">git add . # add files</code></pre></span>
 <span><pre><code data-trim data-noescape class="bash">git commit # </code></pre></span>
@@ -82,17 +120,12 @@
 <span><pre><code data-trim data-noescape class="bash">git init</code></pre></span>
 <span><pre><code data-trim data-noescape class="bash">git tag</code></pre></span>
 </small>
-				</section>
-
-
-<section>
-	<iframe src="gitgraphs/gitgraph.html" width="800" height="600"></iframe>
 </section>
 
 </div>
-		</div>
-		<script src="js/reveal.js"></script>
-		<script>
+</div>
+<script src="js/reveal.js"></script>
+<script>
 
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -114,8 +147,8 @@
 				]
 			});
 
-		</script>
+</script>
 
-	</body>
+</body>
 </html>
 
