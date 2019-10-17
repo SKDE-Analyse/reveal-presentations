@@ -49,14 +49,15 @@
 <textarea data-template>
 ## Hvorfor git?
 
-- Enkelt å ekperimentere med koden (`branch`)
+- Enkelt å ekperimentere med koden (`git branch`)
 - Oversikt over historien (`git log`)
-- Mulig å "angre" på endringer som er gjort
-- Finne når feil ble introdusert
+- Angre på endringer som er gjort (`git revert`)
+- Finne når feil ble introdusert (`git bisect`)
 - Flere (tusen) kan utvikle på samme kode
 </textarea>
 </section>
 
+<section>
 <section data-background-image="img/bg_wide.png" data-markdown>
 <textarea data-template>
 ## Commit
@@ -74,6 +75,9 @@ Gir en unik `hash`
 	<iframe src="gitgraphs/gitgraph1.html" width="800" height="600"></iframe>
 </section>
 
+</section>
+
+<section>
 <section data-background-image="img/bg_wide.png" data-markdown>
 <textarea data-template>
 ## Branch
@@ -92,6 +96,7 @@ Gir en unik `hash`
 <section>
 	<iframe src="gitgraphs/gitgraph.html" width="800" height="600"></iframe>
 </section>
+</section>
 
 <section data-background-image="img/bg_wide.png" data-markdown>
 <textarea data-template>
@@ -100,7 +105,8 @@ Gir en unik `hash`
 I en ideell verden
 - Send kode opp til github i egen branch
 - Be om å få det lagt inn i `master` (*Pull request*)
-- Noen andre trykker ok
+  - *Code review* av andre
+  - Automatisk testing (*Travis CI*)
 
 </textarea>
 </section>
@@ -134,7 +140,7 @@ I en ideell verden
 				center: true,
 				hash: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: 'none', // none/fade/slide/convex/concave/zoom
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
