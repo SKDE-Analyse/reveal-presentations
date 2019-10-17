@@ -29,7 +29,6 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-  <script src="plugin/gitgraph/gitgraph.js"></script>
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -87,39 +86,8 @@
 
 
 <section>
-		<div id="graph-container"></div>
-		<!-- Use the `GitgraphJS` global variable to create your graph -->
-		<script>
-				// Get the graph container HTML element.
-				const graphContainer = document.getElementById("graph-container");
-			
-				// Instantiate the graph.
-				const gitgraph = GitgraphJS.createGitgraph(graphContainer);
-			
-				// Simulate git commands with Gitgraph API.
-				const master = gitgraph.branch("master");
-				master
-				.commit("Initial commit")
-			
-				const aFeature = gitgraph.branch("a-feature");
-				aFeature
-				  .commit("Make it work")
-				  .commit("Make it right")
-				  .commit("Make it fast");
-			
-				master.merge(aFeature).tag("v1.0.0");
-				const bFeature = gitgraph.branch("b-feature");
-				bFeature
-				.commit("Implement new idea")
-				  .commit("Corrected some errors")
-				  master.merge(bFeature);
-				  master.commit({
-  subject: "Add feature",
-  tag: "v1.1.0",
-  author: "Birger <birger.hansen@skde.no>",
-});
 
-			  </script>
+	<iframe src="gitgraph.html" width="800" height="600"></iframe>
 
 </section>
 
