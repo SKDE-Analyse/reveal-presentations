@@ -21,9 +21,18 @@
     master.commit("Initial commit");
     const aFeature = gitgraph.branch("a-feature");
     aFeature
-      .commit("Make it work")
-      .commit("Make it right")
-      .commit("Make it fast");
+      .commit({
+          subject: "Make it work",
+          author: "arnfinn <arnfinn.steindal@skde.no>"
+        })
+      .commit({
+          subject: "Make it right",
+          author: "arnfinn <arnfinn.steindal@skde.no>"
+        })
+      .commit({
+          subject: "Make it fast",
+          author: "arnfinn <arnfinn.steindal@skde.no>"
+        });
     master.merge(aFeature).tag("v1.0.0");
     const bFeature = gitgraph.branch("b-feature");
     bFeature
