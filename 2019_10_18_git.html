@@ -29,7 +29,7 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-
+  <script src="https://cdn.jsdelivr.net/npm/@gitgraph/js"></script>
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -38,9 +38,8 @@
 	<body>
 
 		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+
 				<section>
 					<h1>git</h1>
 					<h3>Versjonkontroll</h3>
@@ -56,20 +55,54 @@ Litt tekst her
 					</p>
 				</section>
 				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="bash">
-git init
-git status
-git ...
-					</code></pre>
+					<h2>Typiske git-kommandoer</h2>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git status</code></pre></span>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git add # Legg til filer klar for commit</code></pre></span>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git commit # </code></pre></span>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git pull</code></pre></span>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git push</code></pre></span>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git checkout</code></pre></span>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git branch</code></pre></span>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git cherry-pick</code></pre></span>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git clone</code></pre></span>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git init</code></pre></span>
+<span class="fragment"><pre><code data-trim data-noescape class="bash">git tag</code></pre></span>
+
 				</section>
 
+<section>
+		Eksempel
+
+		<div id="graph-container"></div>
+
+		<!-- Use the `GitgraphJS` global variable to create your graph -->
+		<script>
+				// Get the graph container HTML element.
+				const graphContainer = document.getElementById("graph-container");
+			
+				// Instantiate the graph.
+				const gitgraph = GitgraphJS.createGitgraph(graphContainer);
+			
+				// Simulate git commands with Gitgraph API.
+				const master = gitgraph.branch("master");
+				master.commit("Initial commit");
+			
+				const aFeature = gitgraph.branch("a-feature");
+				aFeature
+				  .commit("Make it work")
+				  .commit("Make it right")
+				  .commit("Make it fast");
+			
+				master.merge(aFeature).tag("v1.0.0");
+			  </script>
+
+</section>
+
+
+
 			</div>
-
 		</div>
-
 		<script src="js/reveal.js"></script>
-
 		<script>
 
 			// More info https://github.com/hakimel/reveal.js#configuration
