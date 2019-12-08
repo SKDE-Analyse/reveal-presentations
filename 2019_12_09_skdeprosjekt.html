@@ -1,357 +1,541 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
 
-		<title>RShiny ved SKDE</title>
+  <title>RShiny ved SKDE</title>
 
-		<meta name="description" content="Presentasjon til Ramsalt">
-		<meta name="author" content="Arnfinn">
+  <meta name="description" content="Presentasjon til Ramsalt">
+  <meta name="author" content="Arnfinn">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/skde.css" id="theme">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/skde.css" id="theme">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-		<!--[if lt IE 9]>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+  <!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
-	</head>
+</head>
 
-	<body>
+<body>
 
-		<div class="reveal">
-			<div class="slides">
+  <div class="reveal">
+    <div class="slides">
 
-<section data-background-image="img/bg_front_wide.png">
-    <h1>Interaktive nettsider SKDE</h1>
-    <p>
-    Arnfinn Hykkerud Steindal
-    </p>
-</section>
+      <section data-background-image="img/bg_front_wide.png">
+        <h1>Interaktive nettsider SKDE</h1>
+        <p>
+          Arnfinn Hykkerud Steindal
+        </p>
+      </section>
 
-<section data-background-image="img/bg_wide.png">
-    <h2>Mål</h2>
-    <p>
-Lage interaktive nettsider som presenterer resultater fra medisinske kvalitetsregistre, SKDE og helseatlas ved bruk av R-pakken Shiny
-    </p>
-</section>
+      <section data-background-image="img/bg_wide.png">
+        <h2>Mål</h2>
+        <p>
+          Lage interaktive nettsider som presenterer resultater fra medisinske kvalitetsregistre, helseatlas og SKDE ved
+          bruk av R-pakken Shiny
+        </p>
+      </section>
 
-<section data-background-image="img/bg_wide.png">
+      <section data-background-image="img/bg_wide.png">
 
-<h2> Fem arbeidspakker </h2>
-<section>
-    <ul>
-        <li>AP0 Infrastruktur</li>
-        <li>AP1 Resultatportalen</li>
-        <li>AP2 Ny SKDE-portal</li>
-        <li>AP3 Helseatlas</li>
-        <li>AP4 Tabellverk</li>
-    </ul>
-</section>
-<section style="text-align: left;">
-Felles for arbeidspakkene 1 til 4
+        <h2> Fem arbeidspakker </h2>
+        <section>
 
-<ul>
-<li>interaktiv nettside der Shiny er brukt for å oppnå interaktivitet</li>
-<li>alle data skal være anonyme</li>
-</ul>
-</section>
-</section>
+        </section>
+        <!--
+        <section>
+          <ul>
+            <li>AP0 Infrastruktur</li>
+            <li>AP1 Resultatportalen</li>
+            <li>AP2 Ny SKDE-portal</li>
+            <li>AP3 Helseatlas</li>
+            <li>AP4 Tabellverk</li>
+          </ul>
+        </section>
+        -->
 
-<section data-background-image="img/bg_wide.png">
-    <h2>Tidsplan</h2>
-    <section>
-            <style type="text/css">
-                .tg  {border-collapse:collapse;border-spacing:0;border:none;}
-                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
-                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
-                .tg .tg-73oq{border-color:#000000;text-align:left;vertical-align:top}
-                .tg .tg-0lax{text-align:left;vertical-align:top}
-                .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-                .tg .tg-re1e{background-color:#656565;border-color:inherit;text-align:left;vertical-align:top}
-                .tg .tg-3ts9{background-color:#656565;text-align:left;vertical-align:top}
-                </style>
-                <table class="tg">
-                  <tr>
-                    <th class="tg-73oq"></th>
-                    <th class="tg-73oq">Jan</th>
-                    <th class="tg-73oq">Feb</th>
-                    <th class="tg-73oq">Mars</th>
-                    <th class="tg-73oq">Apr</th>
-                    <th class="tg-0lax">Mai</th>
-                    <th class="tg-0lax">Juni</th>
-                    <th class="tg-0lax">Aug</th>
-                    <th class="tg-0lax">Sept</th>
-                    <th class="tg-0lax">Okt</th>
-                    <th class="tg-0lax">Nov</th>
-                    <th class="tg-0lax">Des</th>
-                  </tr>
-                  <tr>
-                    <td class="tg-0pky">AP0 Felles</td>
-                    <td class="tg-re1e"></td>
-                    <td class="tg-re1e"></td>
-                    <td class="tg-re1e"></td>
-                    <td class="tg-re1e"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0pky">AP1 Resultat</td>
-                    <td class="tg-0pky"></td>
-                    <td class="tg-re1e"></td>
-                    <td class="tg-re1e"></td>
-                    <td class="tg-re1e"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-0lax"></td>
-                    <td class="tg-0lax"></td>
-                    <td class="tg-0lax"></td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0pky">AP2 SKDE</td>
-                    <td class="tg-0pky"></td>
-                    <td class="tg-0pky"></td>
-                    <td class="tg-0pky"></td>
-                    <td class="tg-re1e"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0pky">AP3 Helseatlas</td>
-                    <td class="tg-0pky"></td>
-                    <td class="tg-0pky"></td>
-                    <td class="tg-re1e"></td>
-                    <td class="tg-re1e"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-0lax"></td>
-                    <td class="tg-0lax"></td>
-                    <td class="tg-0lax"></td>
-                    <td class="tg-0lax"></td>
-                    <td class="tg-0lax"></td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0pky">AP4 Tabellverk</td>
-                    <td class="tg-0pky"></td>
-                    <td class="tg-0pky"></td>
-                    <td class="tg-0pky"></td>
-                    <td class="tg-0pky"></td>
-                    <td class="tg-0lax"></td>
-                    <td class="tg-0lax"></td>
-                    <td class="tg-0lax"></td>
-                    <td class="tg-0lax"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-3ts9"></td>
-                    <td class="tg-0lax"></td>
-                  </tr>
-                </table>
-    </section>
-    <section>
-    <ul>
-        <li>Uke 49: Første møte for (potensielle) interne utviklere ved SKDE.</li>
-        <li>Uke 1–2: Workshop med utviklere fra Ramsalt og interne utviklere SKDE</li>
-        <li>Fast dag hver uke med koding (hackathons)</li>
-        <li>27.–30. mai: eRum 2020, Milano https://2020.erum.io/</li>
-    </ul>        
-    </section>
-</section>
+        <section style="text-align: left;">
+          <h4>AP0</h4>
+          <p>
+            Utvikle infrastruktur i R, Shiny, ShinyProxy, HTML, CSS, JS osv. som benyttes i de andre arbeidspakkene.
+          </p>
+        </section>
+        <section style="text-align: left;">
+          <h4>AP1</h4>
+          <p>Funksjon for «Velg sykehus» på resultatportalen for medisinske kvalitetsregistre.
+          </p>
+        </section>
+        <section style="text-align: left;">
+          <h4>AP2</h4>
+          <p>Nettside som presenterer et utvalg av oppdaterte resultater fra kvalitetsregistre, helseatlas, med mer
+          </p>
+        </section>
+        <section style="text-align: left;">
+          <h4>AP3</h4>
+          <p>
+            Erstatte Instant Atlas med Shiny.
+          </p>
+        </section>
+        <section style="text-align: left;">
+          <h4>AP4</h4>
+          <p>
+            Få integrert det allerede eksisterende tabellverket inn i nettsidene til SKDE
+          </p>
+        </section>
+        <section style="text-align: left;">
+          Felles for arbeidspakkene 1 til 4
 
-<section>
+          <ul>
+            <li>Interaktiv nettside der Shiny er brukt for å oppnå interaktivitet.</li>
+            <li>Alle data er anonyme.</li>
+          </ul>
+        </section>
+      </section>
 
-    <h2>Ressursbruk</h2>
-    <style type="text/css">
-        .tg  {border-collapse:collapse;border-spacing:0;border:none;border-color:#ccc;}
-        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
-        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
-        .tg .tg-buh4{background-color:#f9f9f9;text-align:left;vertical-align:top}
-        .tg .tg-73oq{border-color:#000000;text-align:left;vertical-align:top}
-        .tg .tg-0lax{text-align:left;vertical-align:top}
+      <section data-background-image="img/bg_wide.png">
+        <h2>Tidsplan</h2>
+        <section>
+
+        </section>
+        <section>
+          <style type="text/css">
+            .tg {
+              border-collapse: collapse;
+              border-spacing: 0;
+              border: none;
+            }
+
+            .tg td {
+              font-family: Arial, sans-serif;
+              font-size: 14px;
+              padding: 10px 5px;
+              border-style: solid;
+              border-width: 0px;
+              overflow: hidden;
+              word-break: normal;
+            }
+
+            .tg th {
+              font-family: Arial, sans-serif;
+              font-size: 14px;
+              font-weight: normal;
+              padding: 10px 5px;
+              border-style: solid;
+              border-width: 0px;
+              overflow: hidden;
+              word-break: normal;
+            }
+
+            .tg .tg-73oq {
+              border-color: #000000;
+              text-align: left;
+              vertical-align: top
+            }
+
+            .tg .tg-0lax {
+              text-align: left;
+              vertical-align: top
+            }
+
+            .tg .tg-0pky {
+              border-color: inherit;
+              text-align: left;
+              vertical-align: top
+            }
+
+            .tg .tg-re1e {
+              background-color: #656565;
+              border-color: inherit;
+              text-align: left;
+              vertical-align: top
+            }
+
+            .tg .tg-3ts9 {
+              background-color: #656565;
+              text-align: left;
+              vertical-align: top
+            }
+          </style>
+          <table class="tg">
+            <tr>
+              <th class="tg-73oq"></th>
+              <th class="tg-73oq">Jan</th>
+              <th class="tg-73oq">Feb</th>
+              <th class="tg-73oq">Mars</th>
+              <th class="tg-73oq">Apr</th>
+              <th class="tg-0lax">Mai</th>
+              <th class="tg-0lax">Juni</th>
+              <th class="tg-0lax">Aug</th>
+              <th class="tg-0lax">Sept</th>
+              <th class="tg-0lax">Okt</th>
+              <th class="tg-0lax">Nov</th>
+              <th class="tg-0lax">Des</th>
+            </tr>
+            <tr>
+              <td class="tg-0pky">AP0 Felles</td>
+              <td class="tg-re1e"></td>
+              <td class="tg-re1e"></td>
+              <td class="tg-re1e"></td>
+              <td class="tg-re1e"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">AP1 Resultat</td>
+              <td class="tg-0pky"></td>
+              <td class="tg-re1e"></td>
+              <td class="tg-re1e"></td>
+              <td class="tg-re1e"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">AP2 SKDE</td>
+              <td class="tg-0pky"></td>
+              <td class="tg-0pky"></td>
+              <td class="tg-0pky"></td>
+              <td class="tg-re1e"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">AP3 Helseatlas</td>
+              <td class="tg-0pky"></td>
+              <td class="tg-0pky"></td>
+              <td class="tg-re1e"></td>
+              <td class="tg-re1e"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">AP4 Tabellverk</td>
+              <td class="tg-0pky"></td>
+              <td class="tg-0pky"></td>
+              <td class="tg-0pky"></td>
+              <td class="tg-0pky"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-0lax"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-3ts9"></td>
+              <td class="tg-0lax"></td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <ul>
+            <li>Uke 49: Første møte for (potensielle) interne utviklere ved SKDE.</li>
+            <li>Uke 1–2: Workshop med utviklere fra Ramsalt og interne utviklere SKDE</li>
+            <li>Fast dag hver uke med koding (hackathons)</li>
+            <li>27.–30. mai: eRum 2020, Milano https://2020.erum.io/</li>
+          </ul>
+        </section>
+      </section>
+
+      <section data-background-image="img/bg_wide.png">
+        <style type="text/css">
+          .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: none;
+            border-color: #ccc;
+          }
+
+          .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 0px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #fff;
+          }
+
+          .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 0px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #f0f0f0;
+          }
+
+          .tg .tg-buh4 {
+            background-color: #f9f9f9;
+            text-align: left;
+            vertical-align: top
+          }
+
+          .tg .tg-73oq {
+            border-color: #000000;
+            text-align: left;
+            vertical-align: top
+          }
+
+          .tg .tg-0lax {
+            text-align: left;
+            vertical-align: top
+          }
         </style>
 
-    <section>
-            <p>Prosjektledelse</p>
-     
-            <small>
-                <table class="tg">
-                        <caption>Andel av full stilling</caption>
-                        <tr>
-                          <th class="tg-73oq"></th>
-                          <th class="tg-73oq">Philip</th>
-                          <th class="tg-73oq">Arnfinn</th>
-                          <th class="tg-73oq">Vibeke</th>
-                          <th class="tg-73oq">Totalt</th>
-                        </tr>
-                        <tr>
-                          <td class="tg-btxf">AP0 Felles</td>
-                          <td class="tg-btxf">0%</td>
-                          <td class="tg-btxf">15%</td>
-                          <td class="tg-btxf">5%</td>
-                          <td class="tg-btxf">20%</td>
-                        </tr>
-                        <tr>
-                          <td class="tg-0pky">AP1 Resultat</td>
-                          <td class="tg-0pky">5%</td>
-                          <td class="tg-0pky">10%</td>
-                          <td class="tg-0pky">20%</td>
-                          <td class="tg-0pky">35%</td>
-                        </tr>
-                        <tr>
-                          <td class="tg-btxf">AP2 SKDE</td>
-                          <td class="tg-btxf">5%</td>
-                          <td class="tg-btxf">15%</td>
-                          <td class="tg-btxf">10%</td>
-                          <td class="tg-btxf">30%</td>
-                        </tr>
-                        <tr>
-                          <td class="tg-0pky">AP3 Helseatlas</td>
-                          <td class="tg-0pky">0%</td>
-                          <td class="tg-0pky">5%</td>
-                          <td class="tg-0pky">5%</td>
-                          <td class="tg-0pky">10%</td>
-                        </tr>
-                        <tr>
-                          <td class="tg-btxf">AP4 Tabellverk</td>
-                          <td class="tg-btxf">0%</td>
-                          <td class="tg-btxf">5%</td>
-                          <td class="tg-btxf">0%</td>
-                          <td class="tg-btxf">5%</td>
-                        </tr>
-                        <tr>
-                          <td class="tg-0pky">Totalt</td>
-                          <td class="tg-0pky">10%</td>
-                          <td class="tg-0pky">50%</td>
-                          <td class="tg-0pky">40%</td>
-                          <td class="tg-0pky">100%</td>
-                        </tr>
-                      </table>
-                    </small>
+        <h2>Ressursbruk</h2>
+        <section>
+
         </section>
-        
-    <section>
-            <p>Andre ressurser</p>
-            <small>
-                <table class="tg">
-                        <caption>Antall timer</caption>
-                  <tr>
-                    <th class="tg-73oq"></th>
-                    <th class="tg-73oq">Ramsalt</th>
-                    <th class="tg-73oq">Analyse</th>
-                    <th class="tg-73oq">Register</th>
-                    <th class="tg-73oq">Stab</th>
-                    <th class="tg-73oq">Totalt SKDE</th>
-                  </tr>
-                  <tr>
-                    <td class="tg-buh4">AP0 Infrastruktur</td>
-                    <td class="tg-buh4">200</td>
-                    <td class="tg-buh4">200</td>
-                    <td class="tg-buh4">800</td>
-                    <td class="tg-buh4">0</td>
-                    <td class="tg-buh4">1000</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">AP1 Resultat</td>
-                    <td class="tg-0lax">200</td>
-                    <td class="tg-0lax">50</td>
-                    <td class="tg-0lax">600</td>
-                    <td class="tg-0lax">150</td>
-                    <td class="tg-0lax">800</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-buh4">AP2 SKDE</td>
-                    <td class="tg-buh4">200</td>
-                    <td class="tg-buh4">100</td>
-                    <td class="tg-buh4">400</td>
-                    <td class="tg-buh4">150</td>
-                    <td class="tg-buh4">650</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">AP3 Helseatlas</td>
-                    <td class="tg-0lax">100</td>
-                    <td class="tg-0lax">200</td>
-                    <td class="tg-0lax">150</td>
-                    <td class="tg-0lax">150</td>
-                    <td class="tg-0lax">500</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-buh4">AP4 Tabellverk</td>
-                    <td class="tg-buh4">50</td>
-                    <td class="tg-buh4">50</td>
-                    <td class="tg-buh4">50</td>
-                    <td class="tg-buh4">50</td>
-                    <td class="tg-buh4">150</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">Totalt</td>
-                    <td class="tg-0lax">750</td>
-                    <td class="tg-0lax">600</td>
-                    <td class="tg-0lax">2000</td>
-                    <td class="tg-0lax">500</td>
-                    <td class="tg-0lax">3100</td>
-                  </tr>
-                </table>
-        </small>
-    </section>
+        <section>
+          <p style="text-align: left;">Prosjektledelse</p>
 
-</section>
+          <small>
+            <table class="tg">
+              <caption>Andel av full stilling</caption>
+              <tr>
+                <th class="tg-73oq"></th>
+                <th class="tg-73oq">Philip</th>
+                <th class="tg-73oq">Arnfinn</th>
+                <th class="tg-73oq">Vibeke</th>
+                <th class="tg-73oq">Totalt</th>
+              </tr>
+              <tr>
+                <td class="tg-btxf">AP0 Felles</td>
+                <td class="tg-btxf">0%</td>
+                <td class="tg-btxf">15%</td>
+                <td class="tg-btxf">5%</td>
+                <td class="tg-btxf">20%</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">AP1 Resultat</td>
+                <td class="tg-0pky">5%</td>
+                <td class="tg-0pky">10%</td>
+                <td class="tg-0pky">20%</td>
+                <td class="tg-0pky">35%</td>
+              </tr>
+              <tr>
+                <td class="tg-btxf">AP2 SKDE</td>
+                <td class="tg-btxf">5%</td>
+                <td class="tg-btxf">15%</td>
+                <td class="tg-btxf">10%</td>
+                <td class="tg-btxf">30%</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">AP3 Helseatlas</td>
+                <td class="tg-0pky">0%</td>
+                <td class="tg-0pky">5%</td>
+                <td class="tg-0pky">5%</td>
+                <td class="tg-0pky">10%</td>
+              </tr>
+              <tr>
+                <td class="tg-btxf">AP4 Tabellverk</td>
+                <td class="tg-btxf">0%</td>
+                <td class="tg-btxf">5%</td>
+                <td class="tg-btxf">0%</td>
+                <td class="tg-btxf">5%</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">Totalt</td>
+                <td class="tg-0pky">10%</td>
+                <td class="tg-0pky">50%</td>
+                <td class="tg-0pky">40%</td>
+                <td class="tg-0pky">100%</td>
+              </tr>
+            </table>
+          </small>
+        </section>
 
+        <section>
+          <p style="text-align: left;">Andre ressurser</p>
+          <small>
+            <table class="tg">
+              <caption>Antall timer</caption>
+              <tr>
+                <th class="tg-73oq"></th>
+                <th class="tg-73oq">Ramsalt</th>
+                <th class="tg-73oq">Analyse</th>
+                <th class="tg-73oq">Register</th>
+                <th class="tg-73oq">Stab</th>
+                <th class="tg-73oq">Totalt SKDE</th>
+              </tr>
+              <tr>
+                <td class="tg-buh4">AP0 Infrastruktur</td>
+                <td class="tg-buh4">200</td>
+                <td class="tg-buh4">200</td>
+                <td class="tg-buh4">800</td>
+                <td class="tg-buh4">0</td>
+                <td class="tg-buh4">1000</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">AP1 Resultat</td>
+                <td class="tg-0lax">200</td>
+                <td class="tg-0lax">50</td>
+                <td class="tg-0lax">600</td>
+                <td class="tg-0lax">150</td>
+                <td class="tg-0lax">800</td>
+              </tr>
+              <tr>
+                <td class="tg-buh4">AP2 SKDE</td>
+                <td class="tg-buh4">200</td>
+                <td class="tg-buh4">100</td>
+                <td class="tg-buh4">400</td>
+                <td class="tg-buh4">150</td>
+                <td class="tg-buh4">650</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">AP3 Helseatlas</td>
+                <td class="tg-0lax">100</td>
+                <td class="tg-0lax">200</td>
+                <td class="tg-0lax">150</td>
+                <td class="tg-0lax">150</td>
+                <td class="tg-0lax">500</td>
+              </tr>
+              <tr>
+                <td class="tg-buh4">AP4 Tabellverk</td>
+                <td class="tg-buh4">50</td>
+                <td class="tg-buh4">50</td>
+                <td class="tg-buh4">50</td>
+                <td class="tg-buh4">50</td>
+                <td class="tg-buh4">150</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">Totalt</td>
+                <td class="tg-0lax">750</td>
+                <td class="tg-0lax">600</td>
+                <td class="tg-0lax">2000</td>
+                <td class="tg-0lax">500</td>
+                <td class="tg-0lax">3100</td>
+              </tr>
+            </table>
+          </small>
+        </section>
 
-</div>
-</div>
+      </section>
 
-<script src="js/reveal.js"></script>
-<script>
+      <section>
+        <h2>Prosjektstyring</h2>
+        <section>
 
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
+        </section>
+        <section>
+          <ul>
+            <li>Prosjektleder oppdaterer prosjektgruppen ukentlig.</li>
+            <li>Prosjektleder oppdaterer lederteam ved SKDE hver måned.</li>
+            <li>Alle dokumenter deles på Google Drive.</li>
+            <li>All utvikling av kode skjer gjennom github, og det benyttes relevante verktøy og «best practice» innen
+              programmering.</li>
+          </ul>
+        </section>
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+      </section>
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true },
-					{ src: 'plugin/search/search.js', async: true },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+      <section>
+        <h2>Kostnadskontroll</h2>
+        <section>
 
-</script>
+        </section>
+        <section>
+          <p style="text-align: left;">For å sikre ansvarlig kostnadskontroll vil følgende tiltak igangsettes:
+          </p>
+          <ul>
+            <li>Tydelige avtaler med eksterne leverandører med hensyn på leveranser og rammer for kostnader.</li>
+            <li>Månedlig gjennomgang av kostnadsbildet.</li>
+            <li>Månedlig gjennomgang av prognoser.</li>
+          </ul>
+        </section>
+
+      </section>
+
+      <section>
+        <h2>Risikofaktorer</h2>
+        <section>
+
+        </section>
+        <section>
+          <ul>
+            <li>Ikke frigitt nok arbeidstimer fra «Nasjonalt servicemiljø for medisinske kvalitetsregistre».</li>
+            <li>Uklar og mangelfull kommunikasjon med Ramsalt/eksterne leverandører</li>
+            <li>Undervurdering av teknisk vanskelighetsgrad</li>
+            <li>Ikke-anonyme data</li>
+          </ul>
+        </section>
+
+      </section>
+
+      <section>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/reveal.js"></script>
+  <script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+        { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: 'plugin/highlight/highlight.js', async: true },
+        { src: 'plugin/search/search.js', async: true },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+
+  </script>
 
 
 </body>
+
 </html>
