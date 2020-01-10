@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>RShiny ved SKDE</title>
+
+  <meta name="description" content="Presentasjon til Ramsalt">
+  <meta name="author" content="Arnfinn">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/skde.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
+	<!-- Theme to remove image borders -->
+	<link rel="stylesheet" href="css/custom.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+  <!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section data-background-image="img/bg_front_wide.png">
+        <h1>Interaktive nettsider SKDE</h1>
+        <p>
+          Arnfinn Hykkerud Steindal
+        </p>
+      </section>
+
+      <section data-background-image="img/bg_wide.png">
+        <h2>Mål</h2>
+          <p>
+          Lage interaktive nettsider som presenterer resultater fra medisinske kvalitetsregistre, helseatlas og SKDE.
+        </p>
+      </section>
+
+      <section data-background-image="img/bg_wide.png">
+
+        <h2> Fem arbeidspakker </h2>
+        <section>
+          <ul>
+            <li>AP1 Infrastruktur</li>
+            <li> <span class="fragment highlight-red">AP2 Resultatportalen</span></li>
+            <li>AP3 Ny SKDE-portal</li>
+            <li>AP4 Helseatlas</li>
+            <li>AP5 Tabellverk</li>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <h4>AP1</h4>
+          <p>
+            Utvikle infrastruktur i R, Shiny, ShinyProxy, Docker, HTML, CSS, JS osv. som benyttes i de andre arbeidspakkene.
+          </p>
+        </section>
+        <section style="text-align: left;">
+          <h4>AP2</h4>
+          <p>Funksjon for «Velg sykehus» på resultatportalen for medisinske kvalitetsregistre.
+          </p>
+          <p><a href="https://app.powerbi.com/view?r=eyJrIjoiZTcwNzQ2MGEtM2JiYS00YTNkLTg5MTYtNDAwNTljNGM0NzQ3IiwidCI6ImU3ZTYxZDk0LTg1ZDctNDFhYS1hZWFhLTAzNmJiZjJkYjZlZSIsImMiOjh9">PowerBI-versjon 2018</a></p>
+          <p><a href="https://app.powerbi.com/view?r=eyJrIjoiNzNjOTk1ZTgtNjM5NC00NzM4LThiYTEtYTdmMDg5NDIzMWQ1IiwidCI6ImU3ZTYxZDk0LTg1ZDctNDFhYS1hZWFhLTAzNmJiZjJkYjZlZSIsImMiOjh9">PowerBI-versjon 2019</a></p>
+        </section>
+        <section style="text-align: left;">
+          <h4>AP3</h4>
+          <p>Nettside som presenterer et utvalg av oppdaterte resultater fra kvalitetsregistre, helseatlas, med mer
+          </p>
+        </section>
+        <section style="text-align: left;">
+          <h4>AP4</h4>
+          <p>
+            Erstatte Instant Atlas med Shiny.
+          </p>
+        </section>
+        <section style="text-align: left;">
+          <h4>AP5</h4>
+          <p>
+            Få integrert det allerede eksisterende tabellverket inn i nettsidene til SKDE
+          </p>
+          <p><a href="https://skde.shinyapps.io/tabellverk/">https://skde.shinyapps.io/tabellverk</a></p>
+        </section>
+        <section style="text-align: left;">
+          Felles for arbeidspakkene 2 til 5
+
+          <ul>
+            <li>Interaktiv nettside der Shiny er brukt for å oppnå interaktivitet.</li>
+            <li>Alle data er anonyme.</li>
+          </ul>
+        </section>
+      </section>
+
+
+      <section data-background-image="img/bg_wide.png" >
+        <img src="img\struktur.png">
+      </section>
+      
+
+    </div>
+  </div>
+
+  <script src="js/reveal.js"></script>
+  <script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+        { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: 'plugin/highlight/highlight.js', async: true },
+        { src: 'plugin/search/search.js', async: true },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+
+  </script>
+
+
+</body>
+
+</html>
