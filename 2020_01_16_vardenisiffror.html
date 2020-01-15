@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>RShiny ved SKDE</title>
+
+		<meta name="description" content="Presentasjon til Ramsalt">
+		<meta name="author" content="Arnfinn">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/skde.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+	<!-- Theme to remove image borders -->
+	<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+<section data-background-image="img/bg_front_wide.png">
+    <h1>Shiny @ SKDE</h1>
+    <p>
+    Arnfinn Hykkerud Steindal
+    </p>
+</section>
+
+<section>
+	<section data-background-image="img/bg_wide.png">
+		<h2>What is Shiny</h2>
+	</section>
+	<section>
+			<iframe src="https://shiny.rstudio.com/" style="height:600px;width:1050px;">RShiny </iframe>
+	</section>
+</section>
+
+<section data-background-image="img/bg_wide.png" data-markdown>
+<textarea data-template>
+## Why Shiny?
+
+- SKDE knows R and Shiny
+- Easy to create interactive web pages
+- Combine with html/css/javascript code
+- Open source
+- Not unlimited funds to pay developers
+
+</textarea>
+</section>
+
+<section>
+	<section data-background-image="img/bg_wide.png">
+			<a href="https://skde.shinyapps.io/tabellverk/">https://skde.shinyapps.io/tabellverk</a>
+	</section>
+	<section>
+			<iframe src="https://skde.shinyapps.io/tabellverk/" style="height:600px;width:1050px;">Tabellverk </iframe>
+	</section>
+</section>
+
+
+<section data-background-image="img/bg_wide.png" >
+    <img src="img\struktur.png">
+</section>
+  
+
+<section data-background-image="img/bg_wide.png">
+	
+</section>
+
+
+<section data-background-image="img/bg_wide.png">
+    <a href="https://www.helsedirektoratet.no/statistikk/statistikk/kvalitetsindikatorer/oversikt-over-kvalitetsindikatorer-per-helseforetak/helse-nord-rhf/universitetssykehuset-nord-norge-hf" target=”_blank”>https://www.helsedirektoratet.no/statistikk/statistikk/kvalitetsindikatorer/oversikt-over-kvalitetsindikatorer-per-helseforetak/helse-nord-rhf/universitetssykehuset-nord-norge-hf</a>
+</section>
+    
+
+<section data-background-image="img/bg_wide.png" style="text-align: left;">
+    <p><a href="https://app.powerbi.com/view?r=eyJrIjoiZTcwNzQ2MGEtM2JiYS00YTNkLTg5MTYtNDAwNTljNGM0NzQ3IiwidCI6ImU3ZTYxZDk0LTg1ZDctNDFhYS1hZWFhLTAzNmJiZjJkYjZlZSIsImMiOjh9">PowerBI version 2018</a></p>
+    <p><a href="https://app.powerbi.com/view?r=eyJrIjoiNzNjOTk1ZTgtNjM5NC00NzM4LThiYTEtYTdmMDg5NDIzMWQ1IiwidCI6ImU3ZTYxZDk0LTg1ZDctNDFhYS1hZWFhLTAzNmJiZjJkYjZlZSIsImMiOjh9">PowerBI version 2019</a></p>
+</section>
+
+
+</div>
+</div>
+
+<script src="js/reveal.js"></script>
+<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+</script>
+
+</body>
+</html>
